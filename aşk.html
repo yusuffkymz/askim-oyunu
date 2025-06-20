@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Kalbimi Yakaladın 💘</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: sans-serif;
+      background-image: url('askimm.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #fff0f5;
+      margin: 0;
+      padding-top: 80px;
+      height: 100vh;
+      overflow: hidden;
+    }
+    #heart-btn {
+      font-size: 60px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      position: absolute;
+      transition: transform 0.2s;
+    }
+    #heart-btn:hover {
+      transform: scale(1.2);
+    }
+    #love {
+      display: none;
+      font-size: 32px;
+      color: crimson;
+      font-weight: bold;
+      background-color: rgba(255,255,255,0.7);
+      padding: 20px;
+      border-radius: 15px;
+      margin-top: 30px;
+      animation: pop 1s ease-out;
+    }
+    @keyframes pop {
+      from { transform: scale(0); }
+      to { transform: scale(1); }
+    }
+    p {
+      background-color: rgba(255,255,255,0.6);
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="background-color: rgba(255,255,255,0.6); padding: 10px 30px; border-radius: 10px;">💘 Kalbimi Yakalayabilir misin? 💘</h1>
+  <p>Sevgilim, kalbi 15 kez yakaladığında seni bekleyen bir sürpriz var!</p>
+  <button id="heart-btn" onclick="catchHeart()">❤️</button>
+  <p>Puan: <span id="score">0</span></p>
+  <div id="love">SENİ ÇOK SEVİYORUMMM AŞKIMMM 💞💞💞</div>
+
+  <script>
+    const btn = document.getElementById('heart-btn');
+    let score = 0;
+
+    function catchHeart() {
+      score++;
+      document.getElementById('score').innerText = score;
+      if (score >= 15) {
+        btn.style.display = 'none';
+        document.getElementById('love').style.display = 'block';
+        setTimeout(() => {
+          window.open("https://youtu.be/31MlKrC-Yvc?si=GaTdAtILAo8OrUIt", "_blank");
+        }, 1200);
+      } else {
+        moveHeart();
+      }
+    }
+
+    function moveHeart() {
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 100);
+      btn.style.left = x + "px";
+      btn.style.top = y + "px";
+    }
+
+    moveHeart();
+  </script>
+</body>
+</html>
